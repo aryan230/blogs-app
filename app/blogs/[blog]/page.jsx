@@ -100,12 +100,14 @@ function BlogPage({ params }) {
                 </h1>
               </header>
               <div className="custom-rte">
-                <ReactQuill
-                  className="py-4"
-                  readOnly={true}
-                  theme={"bubble"}
-                  value={data.blogData}
-                />
+                {typeof document !== "undefined" && (
+                  <ReactQuill
+                    className="py-4"
+                    readOnly={true}
+                    theme={"bubble"}
+                    value={data.blogData}
+                  />
+                )}
               </div>
               <section className="not-format">
                 <div className="flex justify-between items-center mb-6">

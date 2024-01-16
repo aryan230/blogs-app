@@ -13,11 +13,11 @@ function Header() {
   const { setUser } = useBearStore();
   const [newBlog, setNewBlog] = useState(false);
 
-  // useEffect(() => {
-  //   if (localStorage.getItem("userInfo")) {
-  //     setUser(JSON.parse(localStorage.getItem("userInfo")).user);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (localStorage.getItem("userInfo")) {
+      setUser(JSON.parse(localStorage.getItem("userInfo")).user);
+    }
+  }, []);
 
   return (
     <header className="bg-indigo-600">

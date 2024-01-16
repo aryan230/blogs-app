@@ -177,15 +177,17 @@ function AddBlog({ open, setOpen }) {
                         />
                       </div>
                     </div>
-                    <ReactQuill
-                      className="py-4"
-                      theme="snow"
-                      value={value}
-                      onChange={setValue}
-                      modules={{
-                        toolbar: toolbarOptions,
-                      }}
-                    />
+                    {typeof document !== "undefined" && (
+                      <ReactQuill
+                        className="py-4"
+                        theme="snow"
+                        value={value}
+                        onChange={setValue}
+                        modules={{
+                          toolbar: toolbarOptions,
+                        }}
+                      />
+                    )}
                   </div>
                 </div>
               </div>
