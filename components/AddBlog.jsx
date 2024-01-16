@@ -4,7 +4,6 @@ import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationIcon } from "@heroicons/react/outline";
 import { PlusIcon } from "@heroicons/react/solid";
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useBearStore } from "@/store/zustand";
 import { v4 as uuid } from "uuid";
@@ -12,8 +11,12 @@ import { db } from "@/firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import Loader from "./Loader";
+import dynamic from "next/dynamic";
 
-function AddBlog({ open, setOpen }) {
+const ReactQuill =
+  typeof window === "object" ? require("react-quill") : () => false;
+
+const AddBlog = ({ open, setOpen }) => {
   const { user } = useBearStore();
   const router = useRouter();
   const cancelButtonRef = useRef(null);
@@ -216,6 +219,6 @@ function AddBlog({ open, setOpen }) {
       </Dialog>
     </Transition.Root>
   );
-}
+};
 
 export default AddBlog;
