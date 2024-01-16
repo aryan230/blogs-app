@@ -21,13 +21,10 @@ function LoginComponent() {
         console.error(error.message);
       });
   };
-  const redirect = window.location.search
-    ? window.location.search.split("=")[1]
-    : " ";
 
   useEffect(() => {
     if (user) {
-      router.push(`/${redirect}`, { scroll: false });
+      router.push(`/`, { scroll: false });
     }
   }, [user]);
   return (
