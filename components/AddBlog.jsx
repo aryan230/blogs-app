@@ -1,7 +1,5 @@
 "use client";
 
-/* This example requires Tailwind CSS v2.0+ */
-
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationIcon } from "@heroicons/react/outline";
