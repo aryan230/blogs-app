@@ -23,7 +23,7 @@ function Blogs() {
         setBlogs(data);
       });
     }
-  }, []);
+  }, [user]);
 
   console.log(blogs);
   return (
