@@ -4,7 +4,7 @@ import { useBearStore } from "@/store/zustand";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { PencilIcon } from "@heroicons/react/solid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddBlog from "./AddBlog";
 const navigation = [{ name: "Create new Blog", href: "#" }];
 function Header() {
@@ -12,6 +12,13 @@ function Header() {
   const { user } = useBearStore();
   const { setUser } = useBearStore();
   const [newBlog, setNewBlog] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("userInfo")) {
+      setUser(JSON.parse(localStorage.getItem("userInfo")).user);
+    }
+  }, []);
+
   return (
     <header className="bg-indigo-600">
       {<AddBlog open={newBlog} setOpen={setNewBlog} />}
